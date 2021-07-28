@@ -6,7 +6,24 @@ import Axios from 'axios';
 import JScrewIt from "jscrewit"
 export default function Home() {
     useEffect(() => {
-      document.getElementById('input').oninput = function () {
+      function share() {
+        if (!document.getElementById('input').value) {
+        document.getElementById('share').innerHTML = `---`
+        } else {
+          document.getElementById('share').innerHTML = `<a style="color:#ff9494" href="https://copy.ar-dev.cf/?content=${encodeURIComponent(document.getElementById('input').value)}">Copy URL</a>`
+        }
+      }
+      share()
+      function encode() {
+        share()
+        if (document.getElementById('input').value) {
+          document.getElementById('base64').innerHTML = btoa(document.getElementById('input').value) 
+        document.getElementById('uriencoded').innerHTML = encodeURIComponent(document.getElementById('input').value)
+        document.getElementById('hex').innerHTML = new Buffer(document.getElementById('input').value).toString('hex')
+        document.getElementById('ascii').innerHTML = getCharCodes(document.getElementById('input').value)
+        document.getElementById('jsfuck').innerHTML = JScrewIt.encode(document.getElementById('input').value);
+        document.getElementById('low').innerHTML = document.getElementById('input').value.toLowerCase()
+        document.getElementById('up').innerHTML = document.getElementById('input').value.toUpperCase()
         document.getElementById('base64').innerHTML = btoa(document.getElementById('input').value) 
         document.getElementById('uriencoded').innerHTML = encodeURIComponent(document.getElementById('input').value)
         document.getElementById('hex').innerHTML = new Buffer(document.getElementById('input').value).toString('hex')
@@ -18,10 +35,31 @@ export default function Home() {
           }
           return charCodeArr.toString().replace(/,/g, ' ');
         }
-        document.getElementById('ascii').innerHTML = getCharCodes(document.getElementById('input').value)
-        document.getElementById('jsfuck').innerHTML = JScrewIt.encode(document.getElementById('input').value);
-        document.getElementById('low').innerHTML = document.getElementById('input').value.toLowerCase()
-        document.getElementById('up').innerHTML = document.getElementById('input').value.toUpperCase()
+      } else {
+        document.getElementById('base64').innerHTML = '---'
+        document.getElementById('uriencoded').innerHTML = '---'
+        document.getElementById('hex').innerHTML = '---'
+        document.getElementById('ascii').innerHTML = '---'
+        document.getElementById('jsfuck').innerHTML = '---'
+        document.getElementById('low').innerHTML = '---'
+        document.getElementById('up').innerHTML = '---'
+        document.getElementById('base64').innerHTML = '---'
+        document.getElementById('uriencoded').innerHTML = '---'
+        document.getElementById('hex').innerHTML = '---'
+        document.getElementById('ascii').innerHTML = '---'
+        document.getElementById('jsfuck').innerHTML = '---'
+        document.getElementById('low').innerHTML = '---'
+        document.getElementById('up').innerHTML = '---'
+      }
+    }
+      var urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('content') && urlParams.get('content')) {
+        var content = urlParams.get('content')
+        document.getElementById('input').innerHTML = content
+        encode()
+      }
+      document.getElementById('input').oninput = function () {
+        encode()
       }
     },[])  
   return (
@@ -41,9 +79,13 @@ export default function Home() {
         <h1 className={styles.title}>
           encodemaster69420
         </h1>
-        <p>Yes, I actually named it that</p>
+        <p>The fastest way to encode content in multiple ways, at one time. Save yourself some searches, and use encodemaster69420.</p>
 
           <textarea id="input" placeholder="Hello world" width="100%"/>
+          <h3>Share this result</h3>
+          <div id="share">   
+            ---
+          </div>
 
           <h3>As base64</h3>
           <div id="base64">---</div>
