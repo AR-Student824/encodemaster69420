@@ -10,7 +10,7 @@ export default function Home() {
         if (!document.getElementById('input').value) {
         document.getElementById('share').innerHTML = `---`
         } else {
-          document.getElementById('share').innerHTML = `<a style="color:#ff9494" href="https://copy.ar-dev.cf/?content=${encodeURIComponent('https://encode.ar-dev.cf' + encodeURIComponent(document.getElementById('input').value))}">Copy URL</a>`
+          document.getElementById('share').innerHTML = `<a style="color:#ff9494" href="https://copy.ar-dev.cf/?content=${encodeURIComponent('https://encode.ar-dev.cf/?content=' + encodeURIComponent(document.getElementById('input').value))}">Copy URL</a>`
         }
       }
       share()
