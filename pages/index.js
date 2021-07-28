@@ -74,9 +74,7 @@ export default function Home() {
 
           <textarea id="input" placeholder="Hello world" width="100%"/>
           <h3>Share this result</h3>
-          <div id="share">   
-            ---
-          </div>
+          <div id="share">---</div>
 
           <h3>As base64</h3>
           <div id="base64">---</div>
