@@ -20,6 +20,8 @@ export default function Home() {
         }
         document.getElementById('ascii').innerHTML = getCharCodes(document.getElementById('input').value)
         document.getElementById('jsfuck').innerHTML = JScrewIt.encode(document.getElementById('input').value);
+        document.getElementById('low').innerHTML = document.getElementById('input').value.toLowerCase()
+        document.getElementById('up').innerHTML = document.getElementById('input').value.toUpperCase()
       }
     },[])  
   return (
@@ -54,6 +56,12 @@ export default function Home() {
 
           <h3>As ASCII</h3>
           <div id="ascii">---</div>
+
+          <h3>As lowercase</h3>
+          <div id="low">---</div>
+
+          <h3>As uppercase</h3>
+          <div id="up">---</div>
 
           <h3>As JSFuck (jscrewit)</h3>
           <div id="jsfuck">---</div>
