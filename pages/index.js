@@ -41,12 +41,6 @@ export default function Home() {
         document.getElementById('low').innerHTML = '---'
         document.getElementById('up').innerHTML = '---'
         document.getElementById('base64').innerHTML = '---'
-        document.getElementById('uriencoded').innerHTML = '---'
-        document.getElementById('hex').innerHTML = '---'
-        document.getElementById('ascii').innerHTML = '---'
-        document.getElementById('jsfuck').innerHTML = '---'
-        document.getElementById('low').innerHTML = '---'
-        document.getElementById('up').innerHTML = '---'
       }
     }
       var urlParams = new URLSearchParams(window.location.search);
