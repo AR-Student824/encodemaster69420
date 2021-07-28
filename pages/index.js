@@ -24,9 +24,6 @@ export default function Home() {
         document.getElementById('jsfuck').innerHTML = JScrewIt.encode(document.getElementById('input').value);
         document.getElementById('low').innerHTML = document.getElementById('input').value.toLowerCase()
         document.getElementById('up').innerHTML = document.getElementById('input').value.toUpperCase()
-        document.getElementById('base64').innerHTML = btoa(document.getElementById('input').value) 
-        document.getElementById('uriencoded').innerHTML = encodeURIComponent(document.getElementById('input').value)
-        document.getElementById('hex').innerHTML = new Buffer(document.getElementById('input').value).toString('hex')
         function getCharCodes(s){
           let charCodeArr = [];
           for(let i = 0; i < s.length; i++){
