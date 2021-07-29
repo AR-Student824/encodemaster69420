@@ -17,21 +17,27 @@ export default function Home() {
       function encode() {
         share()
         if (document.getElementById('input').value) {
+          function getCharCodes(s){
+            let charCodeArr = [];
+            for(let i = 0; i < s.length; i++){
+                let code = s.charCodeAt(i);
+                charCodeArr.push(code);
+            }
+            return charCodeArr.toString().replace(/,/g, ' ');
+          }
+          function text2Binary(string) {
+            return string.split('').map(function (char) {
+                return char.charCodeAt(0).toString(2);
+            }).join(' ');
+        }
           document.getElementById('base64').innerHTML = btoa(document.getElementById('input').value) 
         document.getElementById('uriencoded').innerHTML = encodeURIComponent(document.getElementById('input').value)
         document.getElementById('hex').innerHTML = new Buffer(document.getElementById('input').value).toString('hex')
         document.getElementById('ascii').innerHTML = getCharCodes(document.getElementById('input').value)
+        document.getElementById('binary').innerHTML = text2Binary(document.getElementById('input').value)
         document.getElementById('jsfuck').innerHTML = JScrewIt.encode(document.getElementById('input').value);
         document.getElementById('low').innerHTML = document.getElementById('input').value.toLowerCase()
         document.getElementById('up').innerHTML = document.getElementById('input').value.toUpperCase()
-        function getCharCodes(s){
-          let charCodeArr = [];
-          for(let i = 0; i < s.length; i++){
-              let code = s.charCodeAt(i);
-              charCodeArr.push(code);
-          }
-          return charCodeArr.toString().replace(/,/g, ' ');
-        }
       } else {
         document.getElementById('base64').innerHTML = '---'
         document.getElementById('uriencoded').innerHTML = '---'
@@ -41,6 +47,7 @@ export default function Home() {
         document.getElementById('low').innerHTML = '---'
         document.getElementById('up').innerHTML = '---'
         document.getElementById('base64').innerHTML = '---'
+        document.getElementById('binary').innerHTML = '---'
       }
     }
       var urlParams = new URLSearchParams(window.location.search);
@@ -87,6 +94,9 @@ export default function Home() {
 
           <h3>As ASCII</h3>
           <div id="ascii">---</div>
+
+          <h3>As binary</h3>
+          <div id="binary">---</div>
 
           <h3>As lowercase</h3>
           <div id="low">---</div>
