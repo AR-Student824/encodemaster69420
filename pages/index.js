@@ -77,7 +77,7 @@ export default function Home() {
         <h1 className={styles.title}>
           encodemaster69420
         </h1>
-        <p>The fastest way to encode content in multiple ways, at one time. Save yourself some searches, and use encodemaster69420. Despite the name, it's actually a pretty useful tool.</p>
+        <p>The fastest way to encode content in multiple ways, at one time. Save yourself some searches, and use encodemaster69420. Despite the name, it&apos;s actually a pretty useful tool.</p>
 
           <textarea id="input" placeholder="Hello world" width="100%"/>
           <h3>Share this result</h3>
