@@ -70,9 +70,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <noscript>
-
-          <h1>This site wont work without javascript enabled</h1>
-          <p>what did you expect</p>
+          <h1><b>Requires JavScript</b></h1>
         </noscript>
         <h1 className={styles.title}>
           Encodr
