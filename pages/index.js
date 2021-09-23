@@ -75,9 +75,9 @@ export default function Home() {
           <p>what did you expect</p>
         </noscript>
         <h1 className={styles.title}>
-          encodemaster69420
+          Encodr
         </h1>
-        <p>The fastest way to encode content in multiple ways, at one time. Save yourself some searches, and use encodemaster69420. Despite the name, it&apos;s actually a pretty useful tool.</p>
+        <p>The fastest &amp; most simple way to encode content in multiple ways, at one time. Save yourself some searches, and use encodemaster69420.</p>
 
           <textarea id="input" placeholder="Hello world" width="100%"/>
           <h3>Share this result</h3>
